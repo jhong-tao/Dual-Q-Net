@@ -1,3 +1,5 @@
+# Cognitive Diagnosis Method via Q-matrix-Embedded Neural Networks
+a neural network method for cognitive diagnosis based on Q-matrix constraints, which introduces the Q-matrix from traditional cognitive diagnosis to ensure the reliability and interpretability of the network structure. 
 # requires Python packages
 - python 3.7
 - numpy 1.21.6
