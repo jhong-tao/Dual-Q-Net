@@ -21,4 +21,5 @@ if __name__ == '__main__':
     y_hat = qnet.predictive(x_test, is2binary=True)
     acc = class_rate4gdina(y_test, y_hat, -2, 3)
 
+    # AAR,PAR(k),PAR(k-1)
     print(f'{"*"*50}\nAAR:{acc[0]}\nPAR({q.shape[1]}):{acc[1][1]}\nPAR({q.shape[1]-1}):{acc[1][0]}')
