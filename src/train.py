@@ -44,7 +44,7 @@ def train_data(data: SimDataSet, q_apos, is_init=True, is_ideal=False, samp_size
         q_star = get_Qstar(q, q_apos)
     x_train, y_train, x_test, y_test, q, q_star = numpy2tensor(device, x_train, y_train, x_test, y_test, q, q_star)
     if verbose:
-        print(f'y_train_shape:{y_train.shape}--y_test_shape:{y_test.shape}--q_shape:{q.shape}--s_star_shape:{q_star.shape}')
+        print(f'\n y_train_shape:{y_train.shape}--y_test_shape:{y_test.shape}--q_shape:{q.shape}--s_star_shape:{q_star.shape}')
     return x_train, y_train, x_test, y_test, q, q_star
 
 

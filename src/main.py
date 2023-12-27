@@ -6,6 +6,19 @@
 @IDE    ：PyCharm
 @Author ：jhong.tao
 @Date   ：2023/12/7
-@Desc   ：
+@Desc   ：Examples of using QNet
 ==================================================
 """
+from src.data import HSD1
+from src.train import train_data, train_net
+from src.models import QNet
+from src.utils import class_rate4gdina
+
+
+if __name__ == '__main__':
+    x_train, y_train, x_test, y_test, q, q_star = train_data(HSD1, q_apos=4, verbose=True)
+    qnet, log = train_net(QNet, x_train, y_train, q, q_star, x_test=x_test, y_test=y_test, verbose=True)
+    y_hat = qnet.predictive(x_test, is2binary=True)
+    acc = class_rate4gdina(y_test, y_hat, -2, 3)
+
+    print(f'{"*"*50}\nAAR:{acc[0]}\nPAR({q.shape[1]}):{acc[1][1]}\nPAR({q.shape[1]-1}):{acc[1][0]}')

@@ -164,6 +164,8 @@ def class_rate4gdina(y: ndarray, y_hat: ndarray, par_digit=-1, decimals=3) -> [f
     :param y_hat: 模型预测的属性掌握模式
     :return: (AAR, PAR)
     """
+    y = y.cpu().detach().numpy() if isinstance(y, (torch.Tensor)) else y
+    y_hat = y_hat.cpu().detach().numpy() if isinstance(y_hat, (torch.Tensor)) else y_hat
     attr = numpy2ri.py2rpy(np.atleast_2d(y))  # gdina.ClassRate函数要求参数必须是二维矩阵
     attr_hat = numpy2ri.py2rpy(np.atleast_2d(y_hat))
     PCA_PCV = gdina.ClassRate(attr, attr_hat)
